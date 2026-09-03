@@ -8,7 +8,7 @@ public interface IGamePlayer
     Position CurrentPosition { get; }
     bool IsComplete { get; }
     IReadOnlyList<MoveRecord> MoveHistory { get; }
-    PieceType? GetPieceAt(Position position);
-    MoveResult TryMove(Position destination);
+    PieceType? GetPieceAt(Position position); // Nullable piece type
+    MoveResult TryMove(Position destination); //Not nullable move result, either success or invalid outcomes
     void Restart();
 }

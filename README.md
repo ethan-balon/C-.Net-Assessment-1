@@ -1,8 +1,8 @@
 # Chess Maze
 
 Designed using C# .NET environment \
-Version 09.2\
-2nd September 2026 11:19AM - 7:01PM\
+Version 09.3\
+3rd September 2026 11:18AM - 12:53PM\
 Ethan Balon\
 ebb0039@arastudent.ac.nz
 
@@ -10,15 +10,25 @@ ebb0039@arastudent.ac.nz
 ChessMaze is a Chess based maze game built using C# and .NET, this is for the BCDE222 Best Programming Practices (C# .NET) Practical Assessment 1
 
 ## Changes from previous
-- Began developing UML diagram (completed UML diagram in backlog)
-- Improve feature card (account for InvalidDestination)
-- Create GamePlayer template
+- Further development of UML diagram
+- Begin development of GamePlayer initialisation (create a new game instance)
+- Succesful testing of GamePlayer initialisation
+
+## Plans for next
+- Improve UML to industry standard
+- Continue development of GamePlayer test and initialisation (setting piece positions and testing if it works)
+
 
 ### v09.01.1
 - Organised folder structure
 - Inserted finished feature cards document
 - Insert UML Diagram document
 - Begin version control and documentation
+
+### v09.02
+- Improve feature card (account for InvalidDestination)
+- Create GamePlayer template
+- Begin development on UML diagram
 
 ## Additional notes
 

@@ -45,8 +45,7 @@ public class GamePlayer : IGamePlayer
 
     public PieceType? GetPieceAt(Position position)
     {
-        // TODO
-        return null;
+        return _pieces.ContainsKey(position) ? _pieces[position] : null;
     }
 
     public MoveResult TryMove(Position destination)

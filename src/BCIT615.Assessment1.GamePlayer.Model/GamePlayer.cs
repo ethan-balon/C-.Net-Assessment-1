@@ -1,4 +1,5 @@
 ﻿using BCIT615.Assessment1.GamePlayer;
+using System.Runtime.CompilerServices;
 
 namespace BCIT615.Assessment1.GamePlayer.Model;
 
@@ -50,8 +51,38 @@ public class GamePlayer : IGamePlayer
 
     public MoveResult TryMove(Position destination)
     {
-        // TODO
-        return MoveResult.InvalidMovement;
+        //get the piece at the current position
+        PieceType? currentPiece = GetPieceAt(_CurrentPosition);
+        PieceType? targetPiece = GetPieceAt(destination);
+        //test for unsuccessful move conditions
+        if (_IsComplete)
+        {
+            return MoveResult.GameAlreadyCompleted;
+        }
+        if (destination.Row < 0 ||
+            destination.Row >= _Rows ||
+            destination.Column < 0 ||
+            destination.Column >= _Columns)
+        {
+            return MoveResult.OutOfBounds;
+        }
+
+
+        //things to do next
+        /*
+         * check what chess piece is in the current position
+            check if it is a legal move based on the chess piece
+            check if the path going to the target position is not blocked
+            check if the target position has a chess peice
+         */
+
+        //use this for something else
+        if (targetPiece == null)
+        {
+            return MoveResult.InvalidDestination;
+        }
+
+            return MoveResult.InvalidMovement;
     }
 
     public void Restart()

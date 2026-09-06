@@ -47,4 +47,51 @@ public sealed class GamePlayerTests
         //checks if unused positions are null, indicating no piece is present
         Assert.AreEqual(null, player.GetPieceAt(new Position(0, 0)));
     }
+
+    [TestMethod]
+    public void TryMove_OutOfBounds_ReturnsOutOfBounds()
+    {
+        BCIT615.Assessment1.GamePlayer.Model.GamePlayer player = new();
+
+        // a position that is outside of the playable game board
+        MoveResult TestResult = player.TryMove(new Position(5,6));
+        // check if game prevents out of bounds move from succeeding
+        Assert.AreEqual(MoveResult.OutOfBounds, TestResult);
+    }
+
+    [TestMethod]
+    public void TryMove_GameCompleted_ReturnsGameCompleted()
+    {
+        BCIT615.Assessment1.GamePlayer.Model.GamePlayer player = new();
+
+        Assert.Inconclusive("Test not yet implemented.");
+    }
+
+
+    [TestMethod]
+    public void TryMove_Rook_IllegalMove_ReturnsInvalidMovement()
+    {
+        BCIT615.Assessment1.GamePlayer.Model.GamePlayer player = new();
+
+        // a position that is not vertically aligned with the current position of rook piece (not a legal rook move)
+        MoveResult TestResult = player.TryMove(new Position(4, 1));
+        // check if game prevents illegal rook move from succeeding
+        Assert.AreEqual(MoveResult.InvalidMovement, TestResult);
+    }
+
+    [TestMethod]
+    public void TryMove_Rook_BlockedPath_ReturnsBlockedPath()
+    {
+        BCIT615.Assessment1.GamePlayer.Model.GamePlayer player = new();
+
+        Assert.Inconclusive("Test not yet implemented.");
+    }
+
+    [TestMethod]
+    public void TryMove_Rook_SuccesfulMove_ReturnsSuccess()
+    {
+        BCIT615.Assessment1.GamePlayer.Model.GamePlayer player = new();
+
+        Assert.Inconclusive("Test not yet implemented.");
+    }
 }

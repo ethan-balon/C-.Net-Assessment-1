@@ -68,6 +68,21 @@ public class GamePlayer : IGamePlayer
         }
 
 
+
+        if (currentPiece == PieceType.Rook)
+        {
+            if (destination.Row != _CurrentPosition.Row && destination.Column != _CurrentPosition.Column)
+            {
+                return MoveResult.InvalidMovement;
+            }
+
+            //to do next
+            //account for path blocked condition
+
+
+
+        }
+
         //things to do next
         /*
          * check what chess piece is in the current position
@@ -82,7 +97,7 @@ public class GamePlayer : IGamePlayer
             return MoveResult.InvalidDestination;
         }
 
-            return MoveResult.InvalidMovement;
+        return MoveResult.Success;
     }
 
     public void Restart()

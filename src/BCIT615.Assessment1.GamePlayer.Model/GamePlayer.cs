@@ -8,10 +8,10 @@ public class GamePlayer : IGamePlayer
     
 
     //game data values
-    private readonly int _Rows;
-    private readonly int _Columns;
-    private bool _IsComplete;
-    private readonly IReadOnlyDictionary<Position, PieceType> _pieces;
+    internal readonly int _Rows;
+    internal readonly int _Columns;
+    internal bool _IsComplete;
+    internal readonly IReadOnlyDictionary<Position, PieceType> _pieces;
 
     //public game data values FOR TESTING PURPOSES
     public bool IsComplete => _IsComplete;

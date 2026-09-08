@@ -71,6 +71,7 @@ public class GamePlayer : IGamePlayer
 
         if (currentPiece == PieceType.Rook)
         {
+            //check if the movement is valid
             if (destination.Row != _CurrentPosition.Row && destination.Column != _CurrentPosition.Column)
             {
                 return MoveResult.InvalidMovement;

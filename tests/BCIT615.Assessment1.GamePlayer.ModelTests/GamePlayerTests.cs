@@ -92,6 +92,10 @@ public sealed class GamePlayerTests
     {
         BCIT615.Assessment1.GamePlayer.Model.GamePlayer player = new();
 
-        Assert.Inconclusive("Test not yet implemented.");
+        MoveResult TestResult = player.TryMove(new Position(5, 3));
+        //check if the move has a successful result
+        Assert.AreEqual(MoveResult.Success, TestResult);
+        //check if the player position successfully updated to the new bishop position
+        Assert.AreEqual(new Position(5, 3), player.CurrentPosition);
     }
 }

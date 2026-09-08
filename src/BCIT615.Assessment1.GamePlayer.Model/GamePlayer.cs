@@ -79,7 +79,7 @@ public class GamePlayer : IGamePlayer
 
             //to do next
             //account for path blocked condition
-
+            
 
 
         }

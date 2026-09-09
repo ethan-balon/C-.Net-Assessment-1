@@ -31,6 +31,7 @@ public class GamePlayer : IGamePlayer
 
     public GamePlayer()
     {
+
         // initialise the game using referenceboarddata values for the first time
         _Rows = ReferenceBoardData.Rows;
         _Columns = ReferenceBoardData.Columns;
@@ -55,7 +56,10 @@ public class GamePlayer : IGamePlayer
         //get the piece at the current position
         PieceType? currentPiece = GetPieceAt(_CurrentPosition);
         PieceType? targetPiece = GetPieceAt(destination);
-        //test for unsuccessful move conditions
+
+        /*
+                        TEST FOR UNSUCCESFUL MOVE CONDITIONS
+         */
         if (_IsComplete)
         {
             return MoveResult.GameAlreadyCompleted;
@@ -68,7 +72,9 @@ public class GamePlayer : IGamePlayer
             return MoveResult.OutOfBounds;
         }
 
-
+        /*
+         *            PIECE SPECIFIC MOVE CONDITIONS
+         */
 
         if (currentPiece == PieceType.Rook)
         {
@@ -100,11 +106,16 @@ public class GamePlayer : IGamePlayer
 
 
 
-        //use this for something else
+        //check if the destination position isnt empty, indicating no other piece is present
         if (targetPiece == null)
         {
             return MoveResult.InvalidDestination;
         }
+
+        /*
+                                    PERFORM PIECE MOVE
+        */
+
 
         //if all fail conditions are not met, proceed with successful move
         _CurrentPosition = destination;
@@ -126,7 +137,7 @@ public class GamePlayer : IGamePlayer
         }
         else
         {
-            //game still incomplete, can accept more moves from player
+            //game still incomplete, normal success returned, can accept more moves from player
             return MoveResult.Success;
         }
 

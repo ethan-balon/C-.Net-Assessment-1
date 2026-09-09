@@ -18,6 +18,18 @@ public sealed class TryMoveRookTests
         Assert.AreEqual(MoveResult.InvalidMovement, TestResult);
     }
 
+
+    [TestMethod]
+    public void TryMove_Rook_EmptyDestination_ReturnsInvalidDestination()
+    {
+        BCIT615.Assessment1.GamePlayer.Model.GamePlayer player = new();
+
+        // a position that is a legal unblocked Rook move, but is a completley blank square
+        MoveResult TestResult = player.TryMove(new Position(5, 2));
+        // check if game prevents move from succeeding
+        Assert.AreEqual(MoveResult.InvalidDestination, TestResult);
+    }
+
     [TestMethod]
     public void TryMove_Rook_BlockedPath_ReturnsBlockedPath()
     {

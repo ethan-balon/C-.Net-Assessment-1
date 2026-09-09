@@ -7,8 +7,6 @@ namespace BCIT615.Assessment1.GamePlayer.ModelTests;
 [TestClass]
 public sealed class TryMoveRookTests
 {
-
-
     [TestMethod]
     public void TryMove_Rook_IllegalMove_ReturnsInvalidMovement()
     {
@@ -25,7 +23,10 @@ public sealed class TryMoveRookTests
     {
         BCIT615.Assessment1.GamePlayer.Model.GamePlayer player = new();
 
-        Assert.Inconclusive("Test not yet implemented.");
+        // a position that is not legal but blocked by Bishop piece
+        MoveResult TestResult = player.TryMove(new Position(5, 5));
+        // check if game prevents blocked rook move from succeeding
+        Assert.AreEqual(MoveResult.InvalidMovement, TestResult);
     }
 
     [TestMethod]
@@ -34,10 +35,9 @@ public sealed class TryMoveRookTests
         BCIT615.Assessment1.GamePlayer.Model.GamePlayer player = new();
 
         MoveResult TestResult = player.TryMove(new Position(5, 3));
-        //check if the move has a successful result
-        //Assert.AreEqual(MoveResult.Success, TestResult);
-        //check if the player position successfully updated to the new bishop position
-        //Assert.AreEqual(new Position(5, 3), player.CurrentPosition);
-        Assert.Inconclusive("Test not yet implemented.");
+        // check if the move has a successful result
+        Assert.AreEqual(MoveResult.Success, TestResult);
+        // check if the player position successfully updated to the new bishop position
+        Assert.AreEqual(new Position(5, 3), player.CurrentPosition);
     }
 }

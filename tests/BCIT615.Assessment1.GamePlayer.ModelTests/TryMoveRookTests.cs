@@ -26,7 +26,7 @@ public sealed class TryMoveRookTests
         // a position that is not legal but blocked by Bishop piece
         MoveResult TestResult = player.TryMove(new Position(5, 5));
         // check if game prevents blocked rook move from succeeding
-        Assert.AreEqual(MoveResult.InvalidMovement, TestResult);
+        Assert.AreEqual(MoveResult.PathBlocked, TestResult);
     }
 
     [TestMethod]

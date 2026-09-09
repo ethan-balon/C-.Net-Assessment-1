@@ -1,4 +1,5 @@
 ﻿using BCIT615.Assessment1.GamePlayer;
+using System.Data.Common;
 using System.Runtime.CompilerServices;
 
 namespace BCIT615.Assessment1.GamePlayer.Model;
@@ -79,18 +80,25 @@ public class GamePlayer : IGamePlayer
 
             //to do next
             //account for path blocked condition
-            
 
+            int rowStep = Math.Sign(destination.Row - _CurrentPosition.Row);
+            int columnStep = Math.Sign(destination.Column - _CurrentPosition.Column);
+            int targetRow = _CurrentPosition.Row + rowStep;
+            int targetColumn = _CurrentPosition.Column + columnStep;
 
+            while (targetRow != destination.Row || targetColumn != destination.Column)
+            {
+                if (GetPieceAt(new Position(targetRow, targetColumn)) != null)
+                {
+                    return MoveResult.PathBlocked;
+                }
+
+                targetRow += rowStep;
+                targetColumn += columnStep;
+            }
         }
 
-        //things to do next
-        /*
-         * check what chess piece is in the current position
-            check if it is a legal move based on the chess piece
-            check if the path going to the target position is not blocked
-            check if the target position has a chess peice
-         */
+
 
         //use this for something else
         if (targetPiece == null)
@@ -98,7 +106,30 @@ public class GamePlayer : IGamePlayer
             return MoveResult.InvalidDestination;
         }
 
-        return MoveResult.Success;
+        //if all fail conditions are not met, proceed with successful move
+        _CurrentPosition = destination;
+
+        //document a new successful move
+        MoveRecord move = new(
+            _MoveRecord.Count + 1,
+            _CurrentPosition,
+            destination,
+            targetPiece.Value);
+        _MoveRecord.Add(move);
+
+        //checks if the game is complete as a result of the new move
+        if (destination == TargetPosition)
+        {
+            //game complete, no further moves accepted
+            _IsComplete = true;
+            return MoveResult.GameCompleted;
+        }
+        else
+        {
+            //game still incomplete, can accept more moves from player
+            return MoveResult.Success;
+        }
+
     }
 
     public void Restart()

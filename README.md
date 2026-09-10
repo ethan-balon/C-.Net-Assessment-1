@@ -1,8 +1,8 @@
 # Chess Maze
 
 Designed using C# .NET environment \
-Version 09.10.2\
-10th September 2026 8:28PM - 9:07PM\
+Version 09.11\
+11th September 2026 8:23AM\
 Ethan Balon\
 ebb0039@arastudent.ac.nz
 
@@ -15,13 +15,14 @@ follow the movement rules of the chess piece on the square they are currently st
 on. The chess pieces stay in fixed positions and never move during the game. The goal is
 to find a path through the maze and reach the target square.
 
-## Changes in v09.10.2
-- completed Knight functionality
-- added _CustomDataMode variable to enhance program's flexibility with custom piece positions
+## Changes in v09.11
+- Partially completed King tests
 
 ## Plans for next version
 - begin development King tests
 - begin development of king functionality
+
+
 
 ## Plans for future
 - Improve UML to industry standard
@@ -29,6 +30,11 @@ to find a path through the maze and reach the target square.
 - Continue working on TryMove (bishop move)
 - Modify private variables to internal variables, remove any unnecessary public duplicates
 - Further improve feature cards
+- increase coverage of tests
+
+### v09.10.2
+- completed Knight functionality
+- added _CustomDataMode variable to enhance program's flexibility with custom piece positions
 
 ### v09.10.1
 - Completed Bishop functionaltiy

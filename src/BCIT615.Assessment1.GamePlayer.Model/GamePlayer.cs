@@ -29,9 +29,9 @@ public class GamePlayer : IGamePlayer
     public Position TargetPosition { get; }
     public Position CurrentPosition => _CurrentPosition;
 
+
     public GamePlayer()
     {
-
         // initialise the game using referenceboarddata values for the first time
         _Rows = ReferenceBoardData.Rows;
         _Columns = ReferenceBoardData.Columns;
@@ -42,8 +42,22 @@ public class GamePlayer : IGamePlayer
         StartPosition = ReferenceBoardData.Start;
         TargetPosition = ReferenceBoardData.Target;
         _CurrentPosition = StartPosition;
+    }
 
 
+    public GamePlayer(Dictionary<Position, PieceType> TestPieces)
+    {
+        // initialise the game using referenceboarddata values for the first time
+        _Rows = ReferenceBoardData.Rows;
+        _Columns = ReferenceBoardData.Columns;
+        _IsComplete = false;
+
+        //fill newly created game instance with positions from referenceboarddata
+        //custom pieces are passed in via the TestPieces parameter during testing purposes
+        _pieces = TestPieces;
+        StartPosition = ReferenceBoardData.Start;
+        TargetPosition = ReferenceBoardData.Target;
+        _CurrentPosition = StartPosition;
     }
 
     public PieceType? GetPieceAt(Position position)
@@ -102,6 +116,33 @@ public class GamePlayer : IGamePlayer
                 targetRow += rowStep;
                 targetColumn += columnStep;
             }
+        }
+
+        if (currentPiece == PieceType.Bishop)
+        {
+            //check if movement is valid
+            if (Math.Abs(destination.Row - _CurrentPosition.Row) != Math.Abs(destination.Column - _CurrentPosition.Column))
+            {
+                return MoveResult.InvalidMovement;
+            }
+
+            int rowStep = Math.Sign(destination.Row - _CurrentPosition.Row);
+            int columnStep = Math.Sign(destination.Column - _CurrentPosition.Column);
+
+            int targetRow = _CurrentPosition.Row + rowStep;
+            int targetColumn = _CurrentPosition.Column + columnStep;
+
+            while (targetRow != destination.Row || targetColumn != destination.Column)
+            {
+                if (GetPieceAt(new Position(targetRow, targetColumn)) != null)
+                {
+                    return MoveResult.PathBlocked;
+                }
+
+                targetRow += rowStep;
+                targetColumn += columnStep;
+            }
+
         }
 
 

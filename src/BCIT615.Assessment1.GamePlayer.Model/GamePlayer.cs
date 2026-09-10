@@ -14,6 +14,9 @@ public class GamePlayer : IGamePlayer
     internal bool _IsComplete;
     internal readonly IReadOnlyDictionary<Position, PieceType> _pieces;
 
+    // variable to decide whether to use default reference databoard or custom databoard (if provided)
+    public bool _CustomDataMode;
+
     //public game data values FOR TESTING PURPOSES
     public bool IsComplete => _IsComplete;
     public int Rows => _Rows;
@@ -29,7 +32,7 @@ public class GamePlayer : IGamePlayer
     public Position TargetPosition { get; }
     public Position CurrentPosition => _CurrentPosition;
 
-
+    // DEFAULT CONSTRUCTOR - When no custom test data is provided
     public GamePlayer()
     {
         // initialise the game using referenceboarddata values for the first time
@@ -42,8 +45,10 @@ public class GamePlayer : IGamePlayer
         StartPosition = ReferenceBoardData.Start;
         TargetPosition = ReferenceBoardData.Target;
         _CurrentPosition = StartPosition;
-    }
 
+        //setup with custom data mode turned off
+        _CustomDataMode = false;
+    }
 
     public GamePlayer(Dictionary<Position, PieceType> TestPieces)
     {
@@ -58,6 +63,9 @@ public class GamePlayer : IGamePlayer
         StartPosition = ReferenceBoardData.Start;
         TargetPosition = ReferenceBoardData.Target;
         _CurrentPosition = StartPosition;
+
+        //setup with custom data mode turned on
+        _CustomDataMode = true;
     }
 
     public PieceType? GetPieceAt(Position position)
@@ -138,11 +146,28 @@ public class GamePlayer : IGamePlayer
                 {
                     return MoveResult.PathBlocked;
                 }
-
-                targetRow += rowStep;
-                targetColumn += columnStep;
+                else
+                {
+                    targetRow += rowStep;
+                    targetColumn += columnStep;
+                }
             }
+        }
 
+
+        if (currentPiece == PieceType.Knight)
+        {
+            int rowAxisMovement = Math.Abs(destination.Row - _CurrentPosition.Row);
+            int rowColumnMovement = Math.Abs(destination.Column - _CurrentPosition.Column);
+
+            // checks if the movement is valid Two squares on one axis and one on the other.
+            bool validKnightMove = (rowAxisMovement == 2 && rowColumnMovement == 1) ||
+                             (rowAxisMovement == 1 && rowColumnMovement == 2);
+
+            if (!validKnightMove)
+            {
+                return MoveResult.InvalidMovement;
+            }
         }
 
 
@@ -158,7 +183,7 @@ public class GamePlayer : IGamePlayer
         */
 
 
-        //if all fail conditions are not met, proceed with successful move
+        //if all failable conditions are not met, proceed with successful move
         _CurrentPosition = destination;
 
         //document a new successful move

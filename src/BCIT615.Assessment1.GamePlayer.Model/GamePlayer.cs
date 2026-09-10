@@ -134,11 +134,11 @@ public class GamePlayer : IGamePlayer
                 return MoveResult.InvalidMovement;
             }
 
-            int rowStep = Math.Sign(destination.Row - _CurrentPosition.Row);
-            int columnStep = Math.Sign(destination.Column - _CurrentPosition.Column);
+            int rowAxisMovement = Math.Sign(destination.Row - _CurrentPosition.Row);
+            int rowColumnMovement = Math.Sign(destination.Column - _CurrentPosition.Column);
 
-            int targetRow = _CurrentPosition.Row + rowStep;
-            int targetColumn = _CurrentPosition.Column + columnStep;
+            int targetRow = _CurrentPosition.Row + rowAxisMovement;
+            int targetColumn = _CurrentPosition.Column + rowColumnMovement;
 
             while (targetRow != destination.Row || targetColumn != destination.Column)
             {
@@ -148,8 +148,8 @@ public class GamePlayer : IGamePlayer
                 }
                 else
                 {
-                    targetRow += rowStep;
-                    targetColumn += columnStep;
+                    targetRow += rowAxisMovement;
+                    targetColumn += rowColumnMovement;
                 }
             }
         }
@@ -170,10 +170,24 @@ public class GamePlayer : IGamePlayer
             }
         }
 
+        if (currentPiece == PieceType.King)
+        {
+            int rowAxisMovement = Math.Abs(destination.Row - _CurrentPosition.Row);
+            int rowColumnMovement = Math.Abs(destination.Column - _CurrentPosition.Column);
+
+            // checks if the movement is valid Two squares on one axis and one on the other.
+            bool validKnightMove = (rowAxisMovement <= 1 && rowColumnMovement <= 1);
+
+            if (!validKnightMove)
+            {
+                return MoveResult.InvalidMovement;
+            }
+        }
+
 
 
         //check if the destination position isnt empty, indicating no other piece is present
-        if (targetPiece == null)
+        if (targetPiece == null && destination != TargetPosition)
         {
             return MoveResult.InvalidDestination;
         }
@@ -186,13 +200,7 @@ public class GamePlayer : IGamePlayer
         //if all failable conditions are not met, proceed with successful move
         _CurrentPosition = destination;
 
-        //document a new successful move
-        MoveRecord move = new(
-            _MoveRecord.Count + 1,
-            _CurrentPosition,
-            destination,
-            targetPiece.Value);
-        _MoveRecord.Add(move);
+        
 
         //checks if the game is complete as a result of the new move
         if (destination == TargetPosition)
@@ -201,11 +209,20 @@ public class GamePlayer : IGamePlayer
             _IsComplete = true;
             return MoveResult.GameCompleted;
         }
-        else
+        else if (targetPiece != null) 
         {
+            MoveRecord move = new(
+                _MoveRecord.Count + 1,
+                _CurrentPosition,
+                destination,
+                targetPiece.Value);
+            _MoveRecord.Add(move);
             //game still incomplete, normal success returned, can accept more moves from player
             return MoveResult.Success;
+            //document a new successful move
+            
         }
+        return MoveResult.InvalidMovement;
 
     }
 

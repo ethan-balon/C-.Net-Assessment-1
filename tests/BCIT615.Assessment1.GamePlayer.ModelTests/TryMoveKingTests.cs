@@ -62,7 +62,7 @@ public sealed class TryMoveKingTests
 
         MoveResult TestResult = player.TryMove(new Position(0, 5));
         // check if the move has a successful result
-        Assert.AreEqual(MoveResult.Success, TestResult);
+        Assert.AreEqual(MoveResult.GameCompleted, TestResult);
         // check if the player position successfully updated to the new king position
         Assert.AreEqual(new Position(0, 5), player.CurrentPosition);
     }

@@ -2,7 +2,7 @@
 
 Designed using C# .NET environment \
 Version 09.11.2\
-11th September 2026 6:49PM\
+11th September 2026 6:49PM - 7:53PM\
 Ethan Balon\
 ebb0039@arastudent.ac.nz
 
@@ -19,16 +19,19 @@ to find a path through the maze and reach the target square.
 - Completed basic fundemental application
 - development King tests
 - development of king functionality
+- Created evidence pack document
 
 
 ## Plans for next version
 - Further improve feature cards
 - increase coverage of tests to improve application
+- continue filling evidence pack document
 
 
 ## Plans for future
-- Improve UML to industry standard
-- Modify private variables to internal variables, remove any unnecessary public duplicates
+- Finalize UML to industry standard, export as PDF or PNG
+- Modify private variables to internal variables, remove any unnecessary public duplicates (DOUBLE CHECK IF THIS IS STILL NECESSARY)
+- create docs/EvidencePack.docx containin evidence aswell as github version control link
 
 
 

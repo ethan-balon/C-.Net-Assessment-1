@@ -228,6 +228,8 @@ public class GamePlayer : IGamePlayer
 
     public void Restart()
     {
-        // TODO
+        _CurrentPosition = StartPosition;
+        _IsComplete = false;
+        _MoveRecord.Clear();
     }
 }

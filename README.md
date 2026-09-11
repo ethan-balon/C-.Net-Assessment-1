@@ -1,8 +1,8 @@
 # Chess Maze
 
 Designed using C# .NET environment \
-Version 09.11.1\
-11th September 2026 8:56AM\
+Version 09.11.2\
+11th September 2026 6:49PM\
 Ethan Balon\
 ebb0039@arastudent.ac.nz
 
@@ -15,22 +15,25 @@ follow the movement rules of the chess piece on the square they are currently st
 on. The chess pieces stay in fixed positions and never move during the game. The goal is
 to find a path through the maze and reach the target square.
 
-## Changes in v09.11.1
-- Fixed issue in King tests
+## Changes in v09.11.2
+- Completed basic fundemental application
+- development King tests
+- development of king functionality
+
 
 ## Plans for next version
-- begin development King tests
-- begin development of king functionality
-
+- Further improve feature cards
+- increase coverage of tests to improve application
 
 
 ## Plans for future
 - Improve UML to industry standard
-- Write tests for TryMove
-- Continue working on TryMove (bishop move)
 - Modify private variables to internal variables, remove any unnecessary public duplicates
-- Further improve feature cards
-- increase coverage of tests
+
+
+
+### v09.11.1
+- Fixed issue in King tests
 
 ### v09.11
 - Partially completed King tests

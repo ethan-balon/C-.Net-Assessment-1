@@ -24,6 +24,21 @@ public sealed class TryMoveAllPiecesTests
     {
         BCIT615.Assessment1.GamePlayer.Model.GamePlayer player = new();
 
-        Assert.Inconclusive("Test not yet implemented.");
+        //perform rook move first as per referenceboardata
+        MoveResult InitialSetup = player.TryMove(new Position(5, 3));
+        Assert.AreEqual(MoveResult.Success, InitialSetup);
+        MoveResult InitialSetup2 = player.TryMove(new Position(3, 5));
+        Assert.AreEqual(MoveResult.Success, InitialSetup2);
+        MoveResult InitialSetup3 = player.TryMove(new Position(1, 4));
+        Assert.AreEqual(MoveResult.Success, InitialSetup3);
+        MoveResult InitialSetup4 = player.TryMove(new Position(0, 5));
+        Assert.AreEqual(MoveResult.GameCompleted, InitialSetup4);
+
+        // check if the player position successfully updated to the new king position
+        MoveResult TestResult = player.TryMove(new Position(0, 4));
+        Assert.AreEqual(MoveResult.GameAlreadyCompleted, TestResult);
+
+        //checks if the player position remains unchanged after finished game
+        Assert.AreEqual(new Position(0, 5), player.CurrentPosition);
     }
 }

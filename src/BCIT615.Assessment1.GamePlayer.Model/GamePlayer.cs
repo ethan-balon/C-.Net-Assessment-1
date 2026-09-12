@@ -176,9 +176,9 @@ public class GamePlayer : IGamePlayer
             int rowColumnMovement = Math.Abs(destination.Column - _CurrentPosition.Column);
 
             // checks if the movement is valid Two squares on one axis and one on the other.
-            bool validKnightMove = (rowAxisMovement <= 1 && rowColumnMovement <= 1);
+            bool validKingMove = (rowAxisMovement <= 1 && rowColumnMovement <= 1);
 
-            if (!validKnightMove)
+            if (!validKingMove)
             {
                 return MoveResult.InvalidMovement;
             }

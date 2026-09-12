@@ -20,7 +20,7 @@ public sealed class TryMoveAllPiecesTests
     }
 
     [TestMethod]
-    public void TryMove_GameCompleted_ReturnsGameCompleted()
+    public void TryMove_GameCompleted_ReturnsGameAlreadyCompleted()
     {
         BCIT615.Assessment1.GamePlayer.Model.GamePlayer player = new();
 

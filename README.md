@@ -1,13 +1,13 @@
 # Chess Maze
 
 Designed using C# .NET environment \
-Version 09.11.2\
-11th September 2026 6:49PM - 7:53PM\
+Version 09.12\
+12th September 2026 9:41AM - 4:47PM\
 Ethan Balon\
 ebb0039@arastudent.ac.nz
 
 ### About
-ChessMaze is a Chess based maze game built using C# and .NET, this is for the BCDE222 Best Programming Practices (C# .NET) Practical Assessment 1\
+ChessMaze is a Chess based maze game built using C# and .NET, this is for the BCDE222 Best Programming Practices (C# .NET) Practical Assessment 1
 
 In this game, the
 player starts on a square containing a chess piece. On each move, the player must
@@ -15,17 +15,16 @@ follow the movement rules of the chess piece on the square they are currently st
 on. The chess pieces stay in fixed positions and never move during the game. The goal is
 to find a path through the maze and reach the target square.
 
-## Changes in v09.11.2
-- Completed basic fundemental application
-- development King tests
-- development of king functionality
-- Created evidence pack document
-
+## Changes in v09.12
+- fixed some typos in the ccode ommentation
+- continue filling evidence pack document
 
 ## Plans for next version
 - Further improve feature cards
 - increase coverage of tests to improve application
-- continue filling evidence pack document
+
+- fix more typo errors in testing comments
+- test for moverecord/movehistory
 
 
 ## Plans for future
@@ -33,6 +32,12 @@ to find a path through the maze and reach the target square.
 - Modify private variables to internal variables, remove any unnecessary public duplicates (DOUBLE CHECK IF THIS IS STILL NECESSARY)
 - create docs/EvidencePack.docx containin evidence aswell as github version control link
 
+
+### v09.11.2
+- Completed basic fundemental application
+- development King tests
+- development of king functionality
+- Created evidence pack document
 
 
 ### v09.11.1

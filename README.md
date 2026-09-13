@@ -1,8 +1,8 @@
 # Chess Maze
 
 Designed using C# .NET environment \
-Version 09.12\
-12th September 2026 9:41AM - 4:47PM\
+Version 09.13\
+13th September 2026 3:22PM\
 Ethan Balon\
 ebb0039@arastudent.ac.nz
 
@@ -15,9 +15,8 @@ follow the movement rules of the chess piece on the square they are currently st
 on. The chess pieces stay in fixed positions and never move during the game. The goal is
 to find a path through the maze and reach the target square.
 
-## Changes in v09.12
-- fixed some typos in the ccode ommentation
-- continue filling evidence pack document
+## Changes in v09.13
+- completed evidence pack
 
 ## Plans for next version
 - Further improve feature cards
@@ -32,6 +31,9 @@ to find a path through the maze and reach the target square.
 - Modify private variables to internal variables, remove any unnecessary public duplicates (DOUBLE CHECK IF THIS IS STILL NECESSARY)
 - create docs/EvidencePack.docx containin evidence aswell as github version control link
 
+### v09.12
+- fixed some typos in the ccode ommentation
+- continue filling evidence pack document
 
 ### v09.11.2
 - Completed basic fundemental application

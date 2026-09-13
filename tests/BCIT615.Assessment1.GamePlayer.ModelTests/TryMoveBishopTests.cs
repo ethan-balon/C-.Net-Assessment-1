@@ -24,14 +24,14 @@ public sealed class TryMoveBishopTests
 
 
 
-
+        // custom piece positions for testing
         Dictionary<Position, PieceType> TestPieces = new()
         {
             [new Position(5, 0)] = PieceType.Bishop,
             [new Position(3, 2)] = PieceType.Knight,
             [new Position(4, 1)] = PieceType.Rook
         };
-
+        // create new instance with custom test pieces
         BCIT615.Assessment1.GamePlayer.Model.GamePlayer player = new(TestPieces);
 
 

@@ -17,6 +17,10 @@ public sealed class TryMoveAllPiecesTests
         MoveResult TestResult = player.TryMove(new Position(5,6));
         // check if game prevents out of bounds move from succeeding
         Assert.AreEqual(MoveResult.OutOfBounds, TestResult);
+        // a second position that is outside of the playable game board for redundancy
+        MoveResult TestResult2 = player.TryMove(new Position(7, 8));
+        // check if game prevents out of bounds move from succeeding
+        Assert.AreEqual(MoveResult.OutOfBounds, TestResult2);
     }
 
     [TestMethod]
@@ -37,6 +41,8 @@ public sealed class TryMoveAllPiecesTests
         // check if the player position successfully updated to the new king position
         MoveResult TestResult = player.TryMove(new Position(0, 4));
         Assert.AreEqual(MoveResult.GameAlreadyCompleted, TestResult);
+        MoveResult TestResult2 = player.TryMove(new Position(1, 5));
+        Assert.AreEqual(MoveResult.GameAlreadyCompleted, TestResult2);
 
         //checks if the player position remains unchanged after finished game
         Assert.AreEqual(new Position(0, 5), player.CurrentPosition);

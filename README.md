@@ -1,8 +1,8 @@
 # Chess Maze
 
 Designed using C# .NET environment \
-Version 09.13\
-13th September 2026 3:22PM\
+Version 09.13.1\
+13th September 2026 7:00PM\
 Ethan Balon\
 ebb0039@arastudent.ac.nz
 
@@ -15,21 +15,24 @@ follow the movement rules of the chess piece on the square they are currently st
 on. The chess pieces stay in fixed positions and never move during the game. The goal is
 to find a path through the maze and reach the target square.
 
-## Changes in v09.13
-- completed evidence pack
+## Commands to setup application
+```text
+dotnet restore
+dotnet build --no-restore
+dotnet test --no-build
+dotnet run --project src/BCIT615.Assessment1.GamePlayer.App
+```
+
+## Changes in v09.13.1
+- Continued development on evidence pack
+- increase coverage of tests to improve application tests
 
 ## Plans for next version
-- Further improve feature cards
-- increase coverage of tests to improve application
-
-- fix more typo errors in testing comments
+- find and fix  typo errors in code comments
 - test for moverecord/movehistory
-
-
-## Plans for future
+- define completed game functionality code location
 - Finalize UML to industry standard, export as PDF or PNG
-- Modify private variables to internal variables, remove any unnecessary public duplicates (DOUBLE CHECK IF THIS IS STILL NECESSARY)
-- create docs/EvidencePack.docx containin evidence aswell as github version control link
+
 
 ### v09.12
 - fixed some typos in the ccode ommentation
@@ -115,30 +118,21 @@ to find a path through the maze and reach the target square.
 ## Additional notes
 
 
-### Authority and environment
-Use the exact released **BCIT615 Assessment 1 Game Player Technical Specification** published with this starter. Use .NET SDK **9.0.316** as pinned in `global.json`, unless teaching staff issue a centrally controlled replacement.
 
 ### Supplied and frozen
-Do not edit, delete, rename, split, merge, relocate, or reproduce:
+Files that were included in the starter solution and were unmodified
 - files in `src/BCIT615.Assessment1.GamePlayer.Contracts/`;
 - `src/BCIT615.Assessment1.GamePlayer.Model/ReferenceBoardData.cs`;
 - supplied baseline tests.
 
 ### Learner-owned work
-Create your own Model implementation and risk-based MSTest tests. Suggested names:
-- `src/BCIT615.Assessment1.GamePlayer.Model/BoardGamePlayer.cs`
-- `src/BCIT615.Assessment1.GamePlayer.Model/GamePlayerFactory.cs`
-- `tests/BCIT615.Assessment1.GamePlayer.ModelTests/BoardGamePlayerConstructionTests.cs`
-- `tests/BCIT615.Assessment1.GamePlayer.ModelTests/BoardGamePlayerMovementTests.cs`
-- `tests/BCIT615.Assessment1.GamePlayer.ModelTests/BoardGamePlayerStateTests.cs`
+Files created for the assessment
+- `src/BCIT615.Assessment1.GamePlayer.Model/\GamePlayer.cs`
+- `tests/BCIT615.Assessment1.GamePlayer.ModelTests/GamePlayerTests.cs`
+- `tests/BCIT615.Assessment1.GamePlayer.ModelTests/TryMoveAllPiecesTests.cs`
+- `tests/BCIT615.Assessment1.GamePlayer.ModelTests/TryMoveRookTests.cs`
+- `tests/BCIT615.Assessment1.GamePlayer.ModelTests/TryMoveBishopTests.cs`
+- `tests/BCIT615.Assessment1.GamePlayer.ModelTests/TryMoveKnightTests.cs`
+- `tests/BCIT615.Assessment1.GamePlayer.ModelTests/TryMoveKingTests.cs`
 
-These names support professional organisation but do not prescribe the internal algorithm. The supplied baseline tests check only contracts and reference data and are **not sufficient learner testing evidence**.
 
-## Commands
-```text
-dotnet restore
-dotnet build --no-restore
-dotnet test --no-build
-dotnet run --project src/BCIT615.Assessment1.GamePlayer.App
-```
-Then run tests to ensure stable functionality

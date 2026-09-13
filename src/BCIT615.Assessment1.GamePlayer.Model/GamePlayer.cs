@@ -223,7 +223,6 @@ public class GamePlayer : IGamePlayer
             
         }
         return MoveResult.InvalidMovement;
-
     }
 
     public void Restart()

@@ -16,6 +16,9 @@ public sealed class TryMoveRookTests
         MoveResult TestResult = player.TryMove(new Position(4, 1));
         // check if game prevents illegal rook move from succeeding
         Assert.AreEqual(MoveResult.InvalidMovement, TestResult);
+       
+        MoveResult TestResult2 = player.TryMove(new Position(3, 5));
+        Assert.AreEqual(MoveResult.InvalidMovement, TestResult2);
     }
 
 
@@ -28,6 +31,9 @@ public sealed class TryMoveRookTests
         MoveResult TestResult = player.TryMove(new Position(5, 2));
         // check if game prevents move from succeeding
         Assert.AreEqual(MoveResult.InvalidDestination, TestResult);
+
+        MoveResult TestResult2 = player.TryMove(new Position(3, 0));
+        Assert.AreEqual(MoveResult.InvalidDestination, TestResult2);
     }
 
     [TestMethod]

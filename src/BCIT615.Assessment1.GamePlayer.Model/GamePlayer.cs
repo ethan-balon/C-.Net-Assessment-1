@@ -14,7 +14,7 @@ public class GamePlayer : IGamePlayer
     internal bool _IsComplete;
     internal readonly IReadOnlyDictionary<Position, PieceType> _pieces;
 
-    // variable to decide whether to use default reference databoard or custom databoard (if provided)
+    // variable to decide whether to use default reference databoard or custom databoard (if provided) on game restart
     public bool _CustomDataMode;
 
     //public game data values FOR TESTING PURPOSES

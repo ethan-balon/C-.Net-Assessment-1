@@ -1,8 +1,8 @@
 # Chess Maze
 
 Designed using C# .NET environment \
-Version 09.13.1\
-13th September 2026 7:00PM\
+Version 09.14\
+14th September 2026 7:00AM\
 Ethan Balon\
 ebb0039@arastudent.ac.nz
 
@@ -23,16 +23,17 @@ dotnet test --no-build
 dotnet run --project src/BCIT615.Assessment1.GamePlayer.App
 ```
 
-## Changes in v09.13.1
+## Changes in v09.14
+- Completed final solution
+- Completed evidence pack
+- Completed UML
+- Completed README
+- Final overlook on documents
+
+
+### v09.13.1
 - Continued development on evidence pack
 - increase coverage of tests to improve application tests
-
-## Plans for next version
-- find and fix  typo errors in code comments
-- test for moverecord/movehistory
-- define completed game functionality code location
-- Finalize UML to industry standard, export as PDF or PNG
-
 
 ### v09.12
 - fixed some typos in the ccode ommentation
